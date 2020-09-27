@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Title = styled.h2`
     font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 `;
 
 const List = styled.ul`
