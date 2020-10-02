@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { Title, List as Root } from './styled';
 import { Post } from './post';
 
 const Posts = (props) => {
     const { posts } = props;
+
+    console.log('posts', posts);
 
     return (
         <Root>
@@ -23,4 +26,14 @@ const Posts = (props) => {
     );
 };
 
-export { Posts };
+const mapStateToProps = (state) => {
+    const { posts } = state;
+
+    return state;
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

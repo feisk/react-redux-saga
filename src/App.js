@@ -12,10 +12,10 @@ function App() {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <Posts posts={[]} />
+                    <Posts />
                 </div>
                 <div className='col'>
-                    <FetchedPosts posts={[]} />
+                    <FetchedPosts />
                 </div>
             </div>
         </main>

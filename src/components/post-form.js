@@ -4,21 +4,42 @@ import styled from 'styled-components';
 const Form = styled.form``;
 
 const PostForm = () => {
+    const [title, setTitle] = React.useState('');
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const post = {
+            id: Date.now(),
+            title,
+        };
+
+        console.log('post', post);
+
+        setTitle('');
     };
 
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-        }
+    const handleChange = (event) => {
+        const { value } = event.target;
+
+        setTitle((prevState) => {
+            if (value !== prevState) {
+                return value;
+            }
+        });
     };
 
     return (
-        <Form onKeyDown={handleKeyDown} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <div className='form-group'>
                 <label htmlFor='postTitle'>Заголовок поста</label>
-                <input type='text' className='form-control' id='postTitle' />
+                <input
+                    className='form-control'
+                    id='postTitle'
+                    type='text'
+                    value={title}
+                    onChange={handleChange}
+                />
             </div>
             <button className='btn btn-success' type='submit'>
                 Создать
